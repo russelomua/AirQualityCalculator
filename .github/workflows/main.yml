@@ -10,9 +10,7 @@ jobs:
       - uses: actions/checkout@v1
       - uses: php-actions/composer@v1
       - name: PHPUnit tests
-        uses: php-actions/phpunit@v1
-        with:
-          config: phpunit.xml
+        run: ./vendor/phpunit/phpunit/phpunit --configuration ./phpunit.xml
       - name: Run codacy-coverage-reporter
         uses: codacy/codacy-coverage-reporter-action@master
         with:
