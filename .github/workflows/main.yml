@@ -8,13 +8,11 @@ jobs:
     name: codacy-coverage-reporter
     steps:
       - uses: actions/checkout@v1
-      - uses: php-actions/composer@v1 # or alternative dependency management
-      - uses: php-actions/phpunit@v1
-      - uses: actions/checkout@master
+      - uses: php-actions/composer@v1
       - name: PHPUnit tests
         uses: php-actions/phpunit@v1
         with:
-          config: ./phpunit.xml
+          config: phpunit.xml
       - name: Run codacy-coverage-reporter
         uses: codacy/codacy-coverage-reporter-action@master
         with:
