@@ -48,8 +48,8 @@ echo $airQialityDTO->category;
 ```
 
 ## References
-* [Reference calculator](https://www3.epa.gov/airnow/aqicalctest/nowcast.htm)
-* [Technical Assistance Document for the Reporting of Daily Air Quality](https://www.airnow.gov/sites/default/files/2020-05/aqi-technical-assistance-document-sept2018.pdf)
-* [Communicating Daily and Real-time Air Quality with the Air Quality Index and the NowCast](http://airnowtech.org/Resources/NACAANowCastPresentation.pdf)
-* [NowCast](https://cran.r-project.org/web/packages/PWFSLSmoke/vignettes/NowCast.html)
-* [Transitioning to a new NowCast Method](https://www3.epa.gov/airnow/ani/pm25_aqi_reporting_nowcast_overview.pdf)
+*  [Reference calculator](https://www3.epa.gov/airnow/aqicalctest/nowcast.htm)
+*  [Technical Assistance Document for the Reporting of Daily Air Quality](https://www.airnow.gov/sites/default/files/2020-05/aqi-technical-assistance-document-sept2018.pdf)
+*  [Communicating Daily and Real-time Air Quality with the Air Quality Index and the NowCast](http://airnowtech.org/Resources/NACAANowCastPresentation.pdf)
+*  [NowCast](https://cran.r-project.org/web/packages/PWFSLSmoke/vignettes/NowCast.html)
+*  [Transitioning to a new NowCast Method](https://www3.epa.gov/airnow/ani/pm25_aqi_reporting_nowcast_overview.pdf)
