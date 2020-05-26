@@ -1,7 +1,7 @@
 # AirQualityCalculator
-Air Quality Index Calculator
+Air Quality Index Calculator - is a tool for calculating Air Quality Index for PM2.5, PM19, CO, SO2, NO2, O3 (ozone)
 
-# Usage
+## Usage
 ```php
 use AirQuality\AirQualityCalculator;
 use AirQuality\Pollutants\PollutantsFactory;
@@ -44,7 +44,7 @@ echo $airQialityDTO->nowCast;
 echo $airQialityDTO->category;
 ```
 
-# References
+## References
 * [Reference calculator](https://www3.epa.gov/airnow/aqicalctest/nowcast.htm)
 * [Technical Assistance Document for the Reporting of Daily Air Quality](https://www.airnow.gov/sites/default/files/2020-05/aqi-technical-assistance-document-sept2018.pdf)
 * [Communicating Daily and Real-time Air Quality with the Air Quality Index and the NowCast](http://airnowtech.org/Resources/NACAANowCastPresentation.pdf)
