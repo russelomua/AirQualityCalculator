@@ -1,0 +1,21 @@
+{
+  "version": "1.0",
+  "name": "russelomua/aqi-calculator",
+  "description": "description",
+  "minimum-stability": "stable",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Kliashtornyi Mykola",
+      "email": "russel.omua@gmail.com"
+    }
+  ],
+  "require-dev": {
+    "phpunit/phpunit": "^9"
+  },
+  "autoload": {
+    "psr-4": {
+      "AirQuality\\": "src"
+    }
+  }
+}
