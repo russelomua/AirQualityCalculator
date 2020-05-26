@@ -1,4 +1,7 @@
 # AirQualityCalculator
+
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/ca26d473f53d432a8cb1bd4e82dfe236)](https://app.codacy.com/manual/russelomua/AirQualityCalculator?utm_source=github.com&utm_medium=referral&utm_content=russelomua/AirQualityCalculator&utm_campaign=Badge_Grade_Dashboard)
+
 Air Quality Index Calculator - is a tool for calculating Air Quality Index for PM2.5, PM19, CO, SO2, NO2, O3 (ozone)
 
 ## Usage
