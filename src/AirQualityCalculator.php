@@ -105,7 +105,7 @@ class AirQualityCalculator
     }
 
     /**
-     * @param $hourlyConcentrations
+     * @param array $hourlyConcentrations
      *
      * @return bool
      */
@@ -118,14 +118,24 @@ class AirQualityCalculator
         return $this->isAtLeastTwoOfTreeFirst($hourlyConcentrations);
     }
 
-    private function isAtLeastTwoOfTreeFirst($hourlyConcentrations)
+    /**
+     * @param array $hourlyConcentrations
+     *
+     * @return bool
+     */
+    private function isAtLeastTwoOfTreeFirst(array $hourlyConcentrations)
     {
         $concentrationsCount = count($hourlyConcentrations);
         $limit = $concentrationsCount >= 3 ? 3 : $concentrationsCount;
 
         $count = 0;
         for ($i = 0; $i < $limit; $i++) {
-            is_numeric($hourlyConcentrations[$i]) && $hourlyConcentrations[$i] > 0 && $count++;
+            if (array_key_exists($i, $hourlyConcentrations)
+                && is_numeric($hourlyConcentrations[$i])
+                && $hourlyConcentrations[$i] > 0
+            ) {
+                $count++;
+            }
         }
 
         return !($count < 2);
