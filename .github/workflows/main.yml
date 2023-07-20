@@ -9,7 +9,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - uses: php-actions/composer@v6
-    - name: php-actions/phpunit@v3
+    - uses: php-actions/phpunit@v3
     - name: Run codacy-coverage-reporter
       uses: codacy/codacy-coverage-reporter-action@master
       with:
