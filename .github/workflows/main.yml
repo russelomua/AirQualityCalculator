@@ -3,16 +3,28 @@ name: codacy-coverage-reporter
 on: ["push"]
 
 jobs:
-  codacy-coverage-reporter:
+  phpunit:
     runs-on: ubuntu-latest
-    name: codacy-coverage-reporter
+    name: phpunit
     steps:
-      - uses: actions/checkout@v1
-      - uses: php-actions/composer@v1
-      - name: PHPUnit tests
-        run: ./vendor/phpunit/phpunit/phpunit --configuration ./phpunit.xml
-      - name: Run codacy-coverage-reporter
-        uses: codacy/codacy-coverage-reporter-action@master
-        with:
-          project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
-          coverage-reports: clover.xml
+    - uses: actions/checkout@v3
+    - uses: php-actions/composer@v6
+    - name: php-actions/phpunit@v3
+    - name: Run codacy-coverage-reporter
+      uses: codacy/codacy-coverage-reporter-action@master
+      with:
+        project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
+        coverage-reports: clover.xml
+    - name: Make code coverage badge
+      uses: timkrase/phpunit-coverage-badge@v1.2.1
+      with:
+        coverage_badge_path: output/coverage.svg
+        push_badge: false
+    - name: Git push to image-data branch
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        publish_dir: ./output
+        publish_branch: image-data
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        user_name: 'github-actions[bot]'
+        user_email: 'github-actions[bot]@users.noreply.github.com'
