@@ -1,34 +1,14 @@
 <?php
+declare(strict_types=1);
 
 namespace AirQuality\Pollutants;
 
+use AirQuality\Category;
+use AirQuality\ConcentrationCategory;
+
 interface PollutantInterface
 {
-    /**
-     * @param int|float $roundedNowCast
-     *
-     * @return int
-     */
-    public function getAirQualityCategory($roundedNowCast);
+    public function truncateNowCast(float|int $nowCast): float|int;
 
-    /**
-     * @param int|float $nowCast
-     *
-     * @return int|float
-     */
-    public function truncateNowCast($nowCast);
-
-    /**
-     * @param $category
-     *
-     * @return int|float
-     */
-    public function getLowBreakpoint($category);
-
-    /**
-     * @param $category
-     *
-     * @return int|float
-     */
-    public function getHighBreakpoint($category);
+    public function getConcentration(Category $index): ?ConcentrationCategory;
 }

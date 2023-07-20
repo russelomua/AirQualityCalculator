@@ -1,20 +1,28 @@
 <?php
+declare(strict_types=1);
 
 namespace AirQuality\Pollutants;
 
-use AirQuality\AirQualityIndex;
+use AirQuality\Category;
+use AirQuality\ConcentrationCategory;
 
-class PM10Pollutant extends GenericPollutant
+readonly class PM10Pollutant implements PollutantInterface
 {
-    protected $precision = 0;
+    public function truncateNowCast(float|int $nowCast): int
+    {
+        return (int) round($nowCast);
+    }
 
-    protected $breakpoints = [
-        AirQualityIndex::GOOD                => [0, 54],
-        AirQualityIndex::MODERATE            => [55, 154],
-        AirQualityIndex::UNHEALTHY_SENSITIVE => [155, 254],
-        AirQualityIndex::UNHEALTHY           => [255, 354],
-        AirQualityIndex::VERY_UNHEALTHY      => [355, 424],
-        AirQualityIndex::HAZARDOUS           => [425, 504],
-        AirQualityIndex::VERY_HAZARDOUS      => [505, 604],
-    ];
+    public function getConcentration(Category $index): ?ConcentrationCategory
+    {
+        return match ($index) {
+            Category::GOOD                => new ConcentrationCategory(0, 54),
+            Category::MODERATE            => new ConcentrationCategory(55, 154),
+            Category::UNHEALTHY_SENSITIVE => new ConcentrationCategory(155, 254),
+            Category::UNHEALTHY           => new ConcentrationCategory(255, 354),
+            Category::VERY_UNHEALTHY      => new ConcentrationCategory(355, 424),
+            Category::HAZARDOUS           => new ConcentrationCategory(425, 504),
+            Category::VERY_HAZARDOUS      => new ConcentrationCategory(505, 604),
+        };
+    }
 }

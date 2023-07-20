@@ -1,18 +1,27 @@
 <?php
+declare(strict_types=1);
 
 namespace AirQuality\Pollutants;
 
-use AirQuality\AirQualityIndex;
+use AirQuality\Category;
+use AirQuality\ConcentrationCategory;
 
-class Ozone1hPollutant extends GenericPollutant
+readonly class Ozone1hPollutant implements PollutantInterface
 {
-    protected $precision = 3;
+    public function truncateNowCast(float|int $nowCast): float
+    {
+        return round($nowCast, 3);
+    }
 
-    protected $breakpoints = [
-        AirQualityIndex::UNHEALTHY_SENSITIVE => [0.125, 0.164],
-        AirQualityIndex::UNHEALTHY           => [0.165, 0.204],
-        AirQualityIndex::VERY_UNHEALTHY      => [0.205, 0.404],
-        AirQualityIndex::HAZARDOUS           => [0.405, 0.504],
-        AirQualityIndex::VERY_HAZARDOUS      => [0.505, 0.604],
-    ];
+    public function getConcentration(Category $index): ?ConcentrationCategory
+    {
+        return match ($index) {
+            default                       => null,
+            Category::UNHEALTHY_SENSITIVE => new ConcentrationCategory(0.125, 0.164),
+            Category::UNHEALTHY           => new ConcentrationCategory(0.165, 0.204),
+            Category::VERY_UNHEALTHY      => new ConcentrationCategory(0.205, 0.404),
+            Category::HAZARDOUS           => new ConcentrationCategory(0.405, 0.504),
+            Category::VERY_HAZARDOUS      => new ConcentrationCategory(0.505, 0.604),
+        };
+    }
 }
