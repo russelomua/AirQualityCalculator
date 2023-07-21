@@ -6,7 +6,7 @@ namespace AirQuality\Pollutants;
 use AirQuality\Category;
 use AirQuality\ConcentrationCategory;
 
-readonly class PM25Pollutant implements PollutantInterface
+final class PM25Pollutant implements PollutantInterface
 {
     public function truncateNowCast(float|int $nowCast): float
     {

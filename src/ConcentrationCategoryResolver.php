@@ -4,9 +4,9 @@ namespace AirQuality;
 
 use AirQuality\Pollutants\PollutantInterface;
 
-readonly class ConcentrationCategoryResolver
+class ConcentrationCategoryResolver
 {
-    public function __construct(private PollutantInterface $pollutant) { }
+    public function __construct(private readonly PollutantInterface $pollutant) { }
 
     public function get(?float $nowCast): ?ConcentrationCategory
     {

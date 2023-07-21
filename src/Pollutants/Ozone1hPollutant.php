@@ -6,7 +6,7 @@ namespace AirQuality\Pollutants;
 use AirQuality\Category;
 use AirQuality\ConcentrationCategory;
 
-readonly class Ozone1hPollutant implements PollutantInterface
+final class Ozone1hPollutant implements PollutantInterface
 {
     public function truncateNowCast(float|int $nowCast): float
     {

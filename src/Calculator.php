@@ -3,19 +3,17 @@ declare(strict_types=1);
 
 namespace AirQuality;
 
-use AirQuality\Pollutants\PollutantInterface;
-
 /**
  * Class AirQualityCalculator
  * Calculates AQI
  *
  * @package AirQualityCalculator
  */
-final readonly class Calculator
+final class Calculator
 {
     public function __construct(
-        private NowCast $nowCast,
-        private ConcentrationCategoryResolver $concentrationResolver,
+        private readonly NowCast $nowCast,
+        private readonly ConcentrationCategoryResolver $concentrationResolver,
     ) {
     }
 
@@ -32,7 +30,7 @@ final readonly class Calculator
         $nowCast = $this->nowCast->getValue();
         $concentration = $this->concentrationResolver->get($nowCast);
 
-        if (null === $concentration) {
+        if (null === $nowCast || null === $concentration) {
             return new Index();
         }
 

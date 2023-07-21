@@ -7,7 +7,7 @@ use AirQuality\Category;
 use AirQuality\ConcentrationCategory;
 use function PHPUnit\Framework\matches;
 
-readonly class NO2Pollutant implements PollutantInterface
+final class NO2Pollutant implements PollutantInterface
 {
     public function truncateNowCast(float|int $nowCast): int
     {

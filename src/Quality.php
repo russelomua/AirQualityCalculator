@@ -3,11 +3,11 @@ declare(strict_types=1);
 
 namespace AirQuality;
 
-readonly class Quality implements \JsonSerializable
+class Quality implements \JsonSerializable
 {
     public function __construct(
-        public ?float $nowCast,
-        public Index $index,
+        public readonly ?float $nowCast,
+        public readonly Index $index,
     ) {
     }
 

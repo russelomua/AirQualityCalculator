@@ -4,7 +4,6 @@
 
 Air Quality Index Calculator - is a tool for calculating Air Quality Index for PM2.5, PM19, CO, SO2, NO2, O3 (ozone)
 
-
 ## Installation
 
 ```bash
@@ -12,7 +11,7 @@ composer require utg/air-quality-calculator
 ```
 
 ## Upgrading from v1
-Now require PHP 8.2 or higher
+Now require PHP 8.1 or higher
 Fully incompatible with v1, see Usage section for more details
 
 ## Usage

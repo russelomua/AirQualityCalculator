@@ -6,10 +6,13 @@ use AirQuality\Pollutants\PollutantInterface;
 
 final class NowCast
 {
+    /** @psalm-suppress PropertyNotSetInConstructor it must be undefined */
     private ?float $nowCast;
 
-    public function __construct(private readonly array $tuple)
-    {
+    public function __construct(
+        /** @var list<int|float|null> */
+        private readonly array $tuple
+    ) {
     }
 
     public function createCalculator(PollutantInterface $pollutant): Calculator
@@ -68,8 +71,12 @@ final class NowCast
 
     private function getScaleRate(): int|float
     {
-        $minConcentration = min($this->tuple);
-        $maxConcentration = max($this->tuple);
+        if (empty($this->tuple)) {
+            return 0; // @codeCoverageIgnore
+        }
+
+        $minConcentration = min($this->tuple) ?: 0;
+        $maxConcentration = max($this->tuple) ?: 0;
 
         return ($maxConcentration - $minConcentration) / $maxConcentration;
     }
