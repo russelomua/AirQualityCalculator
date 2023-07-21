@@ -1,13 +1,18 @@
 # AirQualityCalculator v2
 
+![Version](http://poser.pugx.org/russelomua/aqi-calculator/version)
+![Dependents](http://poser.pugx.org/russelomua/aqi-calculator/dependents)
+![PHP Version Require](http://poser.pugx.org/russelomua/aqi-calculator/require/php)
+![License](http://poser.pugx.org/russelomua/aqi-calculator/license)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/ca26d473f53d432a8cb1bd4e82dfe236)](https://app.codacy.com/manual/russelomua/AirQualityCalculator?utm_source=github.com&utm_medium=referral&utm_content=russelomua/AirQualityCalculator&utm_campaign=Badge_Grade_Dashboard)
+![Coverage Badge](https://raw.githubusercontent.com/russelomua/AirQualityCalculator/image-data/coverage.svg)
 
 Air Quality Index Calculator - is a tool for calculating Air Quality Index for PM2.5, PM19, CO, SO2, NO2, O3 (ozone)
 
 ## Installation
 
 ```bash
-composer require utg/air-quality-calculator
+composer require russelomua/aqi-calculator
 ```
 
 ## Upgrading from v1
