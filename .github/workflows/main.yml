@@ -11,7 +11,10 @@ jobs:
     - uses: php-actions/composer@v6
     - name: PHPUnit tests
       uses: php-actions/phpunit@v3
+      env:
+        XDEBUG_MODE: coverage
       with:
+        configuration: phpunit.xml
         php_extensions: xdebug
     - name: Run codacy-coverage-reporter
       uses: codacy/codacy-coverage-reporter-action@master
