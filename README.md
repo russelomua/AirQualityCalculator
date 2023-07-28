@@ -35,7 +35,7 @@ $pollutant = new \AirQuality\Pollutants\PM25Pollutant();
 $calculator = $nowCast->createCalculator($pollutant);
 
 // Full quality object
-$quality = $calculator->getQuality($concentrations, $pollutant);
+$quality = $calculator->getQuality();
 // Index only quality object
 $index = $calculator->getIndex();
 
